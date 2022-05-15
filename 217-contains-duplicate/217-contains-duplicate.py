@@ -3,11 +3,8 @@ class Solution:
         dic = {}
         for i in nums:
             if i in dic:
-                dic[i] += 1
+                return True
             else:
                 dic[i] = 1
                 
-        for val in dic.values():
-            if(val > 1):
-                return True
         return False
