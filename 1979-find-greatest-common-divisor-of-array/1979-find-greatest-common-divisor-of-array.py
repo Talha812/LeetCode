@@ -4,10 +4,10 @@ class Solution:
         max_num = max(nums)
         min_num = min(nums)
         
-        ans = 1
-        for i in range(2,min_num+1):
-            if(min_num%i == 0 and max_num%i == 0):
-                ans = i
+        greatestDivisor = 1
+        for divisor in range(2,min_num+1):
+            if(min_num%divisor == 0 and max_num%divisor == 0):
+                greatestDivisor = divisor
         
-        return ans
+        return greatestDivisor
     
