@@ -1,6 +1,7 @@
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
-        
+
+    
         Sum = 0
         
         col = len(mat)-1
