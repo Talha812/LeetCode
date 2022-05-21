@@ -5,11 +5,12 @@ class Solution:
         g.sort()
         s.sort()
         
-        for i in g:
-            for j in range(len(s)):
-                if(i <= s[j]):
-                    s.pop(j)
-                    count += 1
-                    break
-        
+        i = 0
+        j = 0
+        while(i<len(g) and j<len(s)):
+            if(g[i] <= s[j]):
+                count += 1
+                i += 1
+            j += 1
+            
         return count
