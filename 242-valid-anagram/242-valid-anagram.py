@@ -18,14 +18,15 @@ class Solution:
             else:
                 dic2[t[i]] = 1
         
+        return dic1 == dic2
         
-        for i in dic2.keys():
-            if(dic2.get(i) != None and dic1.get(i)!=None and dic2[i] != dic1[i]):
-                return False
-            elif(dic2.get(i) != None and dic1.get(i) == None):
-                return False
-            elif(dic2.get(i) == None and dic1.get(i) != None):
-                return False
+#         for i in dic2.keys():
+#             if(dic2.get(i) != None and dic1.get(i)!=None and dic2[i] != dic1[i]):
+#                 return False
+#             elif(dic2.get(i) != None and dic1.get(i) == None):
+#                 return False
+#             elif(dic2.get(i) == None and dic1.get(i) != None):
+#                 return False
         
-        return True
+#         return True
             
