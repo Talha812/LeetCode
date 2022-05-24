@@ -5,8 +5,8 @@ class Solution:
         if(len(s) != len(t)):
             return False
         
-        for char in set(s):
-            if s.count(char) != t.count(char):
+        for char in range(len(s)):
+            if s.count(s[char]) != t.count(s[char]):
                 return False
             
         return True
