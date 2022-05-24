@@ -1,6 +1,18 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         
+        
+        if(len(s) != len(t)):
+            return False
+        
+        for char in set(s):
+            if s.count(char) != t.count(char):
+                return False
+            
+        return True
+        
+        """
+        
         if(len(s) != len(t)):
             return False
         
@@ -19,14 +31,5 @@ class Solution:
                 dic2[t[i]] = 1
         
         return dic1 == dic2
-        
-#         for i in dic2.keys():
-#             if(dic2.get(i) != None and dic1.get(i)!=None and dic2[i] != dic1[i]):
-#                 return False
-#             elif(dic2.get(i) != None and dic1.get(i) == None):
-#                 return False
-#             elif(dic2.get(i) == None and dic1.get(i) != None):
-#                 return False
-        
-#         return True
-            
+
+        """            
