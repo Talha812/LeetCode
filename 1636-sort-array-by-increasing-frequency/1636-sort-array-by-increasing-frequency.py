@@ -22,10 +22,10 @@ class Solution:
             if len(dic[i]) == 1:
                 ans.append(dic[i][0])
             else:
-                for val in reversed(list(dic[i])):
-                    if val not in ans:
+                for val in range(len(list(dic[i]))-1, -1, -1):
+                    if dic[i][val] not in ans:
                         for put in range(i):
-                            ans.append(val)
+                            ans.append(dic[i][val])
                             
         return ans
                 
