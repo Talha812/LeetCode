@@ -17,7 +17,7 @@ class Solution:
                 ind -= 1
                # print(ans)
                 
-            if(ind < 0 and i >= 0):
+            if(ind < 0):
                 break
         
         return ans
