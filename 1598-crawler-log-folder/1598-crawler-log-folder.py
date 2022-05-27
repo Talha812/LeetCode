@@ -1,16 +1,16 @@
 class Solution:
     def minOperations(self, logs: List[str]) -> int:
         
-        ans = []
+        ans = 0
         
         for i in logs:
-            if i == "../" and len(ans) != 0:
-                ans.pop()
+            if i == "../" and ans != 0:
+                ans -= 1
                 
             elif i == "./" or i == "../":
                 continue
                 
             else:
-                ans.append(i)
+                ans += 1
         
-        return len(ans)
+        return ans
