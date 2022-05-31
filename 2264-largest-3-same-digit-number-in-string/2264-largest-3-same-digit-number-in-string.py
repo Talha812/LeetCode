@@ -12,4 +12,4 @@ class Solution:
             if(num[i] == num[i+1] == num[i+2]):
                 maximum = max(maximum,(num[i]+num[i+1]+num[i+2]))
         
-        return ""
+        
