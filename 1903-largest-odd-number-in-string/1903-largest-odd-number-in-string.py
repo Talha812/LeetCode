@@ -7,6 +7,5 @@ class Solution:
                 return str(int_num)
             else:
                 int_num //= 10
-                #num = num[0:len(num)-1]
         
         return ""
