@@ -30,7 +30,7 @@ class Solution:
         mid = getMidPoint(head)
         revHead = reverseLinkedList(mid)
         
-        while revHead:# and head and revHead != head:
+        while revHead:
             if revHead.val != head.val:
                 return False
             head = head.next
