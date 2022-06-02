@@ -12,8 +12,8 @@ class Solution:
         curr = head
         prev = None
         
-        while(curr):
-            if(head.val == val):
+        while(curr != None):
+            if(head.val == val):    #to Check Start values(Head Values)
                 head = head.next
                 curr = head
                 
@@ -24,4 +24,5 @@ class Solution:
             else:
                 prev = curr
                 curr = curr.next
+                
         return head
