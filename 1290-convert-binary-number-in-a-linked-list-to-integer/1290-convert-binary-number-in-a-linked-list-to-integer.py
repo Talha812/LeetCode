@@ -6,29 +6,9 @@
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
         
-        if not head:
-            return 0
-        
-        def reverse(self, head):
-            prev = None
-            curr = head
-            while(curr):
-                temp = curr.next
-                curr.next = prev
-                prev = curr
-                curr = temp
-            
-            return prev
-        
-        reversed_LL = reverse(self, head)
-        #print(reversed_LL)
-        power = 0
-        ans = 0
-        curr = reversed_LL
-        
+        result = 0
+        curr = head
         while(curr):
-            ans += curr.val * (2**power)
-            power += 1
+            result = result*2 + curr.val
             curr = curr.next
-            
-        return ans
+        return result
