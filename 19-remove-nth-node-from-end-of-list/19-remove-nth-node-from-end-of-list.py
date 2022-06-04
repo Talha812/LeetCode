@@ -8,35 +8,27 @@ class Solution:
         if(not head):
             return head
         
-        def reverse(self, head):
-            prev = None
+        def size(self, head):
+            sz = 0
             curr = head
-            
             while(curr):
-                temp = curr.next
-                curr.next = prev
-                prev = curr
-                curr = temp
+                sz += 1
+                curr = curr.next
             
-            return prev
+            return sz
         
-        reversed_LL = reverse(self, head)
+        size = size(self, head)
         
-        
+        prev = None
+        curr = head
         i = 1
-        prev_rev = None
-        curr_rev = reversed_LL
-        #print(curr_rev)
-        while(curr_rev and i != n):
-            prev_rev = curr_rev
-            curr_rev = curr_rev.next
+        while(i < size-n+1):
+            prev = curr
+            curr = curr.next
             i += 1
-
-        if prev_rev is None:
-            reversed_LL = reversed_LL.next
+        if prev is None:
+            head = head.next
         else:
-            prev_rev.next = curr_rev.next
+            prev.next = curr.next
         
-        again_retrieve_order = reverse(self, reversed_LL)
-        
-        return again_retrieve_order
+        return head
