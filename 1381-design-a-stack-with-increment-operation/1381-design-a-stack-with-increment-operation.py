@@ -2,8 +2,8 @@ class CustomStack:
 
     def __init__(self, maxSize: int):
         self.stack = [0]*maxSize
-        self.index = -1
-        self.size = 0
+        self.index = -1       #index where to place element
+        self.size = 0       #current size (how many elements are filled)
 
     def push(self, x: int) -> None:
         if(self.index < len(self.stack)-1):
@@ -36,3 +36,5 @@ class CustomStack:
 # obj.push(x)
 # param_2 = obj.pop()
 # obj.increment(k,val)
+
+
