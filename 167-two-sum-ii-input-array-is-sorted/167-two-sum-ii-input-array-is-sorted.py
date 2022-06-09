@@ -3,9 +3,10 @@ class Solution:
         
         dic = {}
         
-        for num_index in range(len(numbers)):
-            sec_num = target-numbers[num_index]
-            if(sec_num in dic):
-                return [dic[sec_num]+1, num_index+1]
-            else:
-                dic[numbers[num_index]] = num_index
+        for i in range(len(numbers)):
+            sec_num = target-numbers[i]
+            if sec_num in dic:
+                return [dic[sec_num]+1, i+1]
+            dic[numbers[i]] = i
+        
+        
