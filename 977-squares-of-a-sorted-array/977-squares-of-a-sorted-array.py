@@ -3,6 +3,6 @@ class Solution:
         
         for i in range(len(nums)):
             nums[i] = nums[i]*nums[i]
-        
+            
         nums.sort()
         return nums
