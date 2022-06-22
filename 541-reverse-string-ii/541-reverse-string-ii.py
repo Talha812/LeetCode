@@ -11,7 +11,7 @@ class Solution:
                 i += 1
                 j -= 1
             #print(arr)
-            return arr
+            #return arr
         
         arr = []
         for ch in s:
