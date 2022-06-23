@@ -8,6 +8,7 @@ class Solution:
                 digits += 1
                 str_digits += i
        #print(str_digits)
+    
         alphabets = 0
         str_alphabets = ""
         for i in s:
