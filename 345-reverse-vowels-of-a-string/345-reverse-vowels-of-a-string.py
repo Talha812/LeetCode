@@ -1,8 +1,10 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
         
-        l = list(s)
-        #print(l)
+        l = []
+        for i in s:
+            l.append(i)
+        print(l)
         
         low = 0
         high = len(l)-1
@@ -21,6 +23,6 @@ class Solution:
                 l[high] = temp
                 low += 1
                 high -= 1
-        print(l)
+        #print(l)
         
         return "".join(l)
