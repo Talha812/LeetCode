@@ -6,27 +6,13 @@
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
-        values = []
-        temp = answer = head
+        curr = head
+        prev = None
         
-        while(temp):
-            values.append(temp.val)
-            temp = temp.next
+        while(curr):
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
         
-        while(head):
-            head.val = values.pop()
-            head = head.next
-        
-        return answer
-        
-#         prev = None
-#         curr = head
-        
-#         while(curr):
-#             temp = curr.next
-#             curr.next = prev
-#             prev = curr
-#             curr = temp
-        
-#         return prev
-
+        return prev
