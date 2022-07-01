@@ -6,6 +6,7 @@
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
         
+                
 #         def printList(self, head):
 #             curr = head
 #             while curr is not None:   #(curr != None)  ===   while(curr)  ===     same
@@ -47,11 +48,11 @@ class Solution:
                 #printList(self, record_sec)
                 
             curr = temp
+            
+            
         if(first_partition == None):
             return record_sec
         else:
             first_partition.next = record_sec
             
         return record_first
-        
-                
