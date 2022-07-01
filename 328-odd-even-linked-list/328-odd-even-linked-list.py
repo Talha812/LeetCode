@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        
+                
         num = 1
         
         record_odd_indices_LL = odd_indices_LL = None
