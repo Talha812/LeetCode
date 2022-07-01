@@ -35,9 +35,7 @@ class Solution:
             num += 1
             curr = temp
             
-        if(record_odd_indices_LL == None):
-            return record_even_indices_LL
-        else:
+        if(record_odd_indices_LL != None):
             odd_indices_LL.next = record_even_indices_LL
-        
+            
         return record_odd_indices_LL
