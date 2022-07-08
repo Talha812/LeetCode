@@ -16,15 +16,15 @@ class Solution:
         
         print(graph)
         # append the source to the queue. 
-        queue.append(source)
+        queue.append(destination)
         
         while queue:
-            curr = queue.pop()
+            curr = queue.popleft()
             
             if(curr not in visited):
                 visited.add(curr)
             
-            if curr == destination:
+            if curr == source:
                 return True
             
             for neighbor in graph[curr]:
