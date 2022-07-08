@@ -1,15 +1,13 @@
 class Solution:
     def balancedStringSplit(self, s: str) -> int:
-        
-        balance = 0
-        count = 0
+        count_L=0
+        count_R=0
+        amount=0
         for i in s:
-            if i == "L":
-                balance += 1
-            else:
-                balance -= 1
-            
-            if(balance == 0):
-                count += 1
-                
-        return count
+            if i=='R':
+                count_R+=1
+            if i=="L":
+                count_L+=1
+            if count_L==count_R:
+                amount+=1
+        return amount
