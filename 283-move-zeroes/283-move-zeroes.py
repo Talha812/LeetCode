@@ -3,14 +3,12 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
-        originalIndex = 0
 
-        for i in range(len(nums)):
-
-            if(nums[i]!=0):
-
-                nums[i],nums[originalIndex] = nums[originalIndex],nums[i]
-
-                originalIndex+=1
-            
+        f=0
+        s=0
+        while f<len(nums):
+            if nums[f]!=0:
+                if nums[s]==0:
+                    nums[s],nums[f]=nums[f],nums[s]
+                s+=1
+            f+=1
