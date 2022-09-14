@@ -10,5 +10,5 @@ class Solution:
             else:
                 dic[i] = 1
             
-            if(dic[i] > len(nums)//2):
+            if(dic[i] > len(nums)/2):
                 return i
