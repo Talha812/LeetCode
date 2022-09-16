@@ -8,5 +8,3 @@ class Solution:
             if sec_num in dic:
                 return [dic[sec_num]+1, i+1]
             dic[numbers[i]] = i
-        
-        
