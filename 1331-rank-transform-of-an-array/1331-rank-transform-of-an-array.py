@@ -4,7 +4,8 @@ class Solution:
         if(arr == []):
             return []
         
-        copy = sorted(arr.copy())
+        copy = arr.copy()
+        copy.sort()
         
         rank  = [1]*len(copy)
         val = 1
@@ -27,5 +28,5 @@ class Solution:
         
         return ans
         
-        
+        #Sequence
         # 1 -> log(n) -> n -> nlog(n) -> n^2 -> 2^n -> n!
