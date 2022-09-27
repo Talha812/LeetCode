@@ -1,11 +1,17 @@
 class Solution:
     def restoreString(self, s: str, indices: List[int]) -> str:
         
-        ans = [0]*len(s)
+        ans = ""
         
         for i in range(len(s)):
-            ans[indices[i]] = s[i]
+            ans += s[indices.index(i)]
         
-        return "".join(ans)
+        return ans
+#         ans = [0]*len(s)
+        
+#         for i in range(len(s)):
+#             ans[indices[i]] = s[i]
+        
+#         return "".join(ans)
         
         
