@@ -14,10 +14,11 @@ class Solution:
                 ans.append(high)
                 high -= 1
         
-        if(s[-1] == "D"):
-            ans.append(high)
-        else:
-            ans.append(low)
+        ans.append(high)
+        # if(s[-1] == "D"):
+        #     ans.append(high)
+        # else:
+        #     ans.append(low)
         
         return ans
             
