@@ -1,5 +1,6 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
+        
         dicS_T = {}
         dicT_S = {}
         for i in range(len(s)):
@@ -13,5 +14,3 @@ class Solution:
         print(dicS_T)
         print(dicT_S)
         return True
-    
-    
