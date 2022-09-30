@@ -23,6 +23,7 @@ class Solution:
                 l[high] = temp
                 low += 1
                 high -= 1
+                
         #print(l)
         
         return "".join(l)
