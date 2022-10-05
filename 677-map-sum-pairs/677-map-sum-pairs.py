@@ -10,7 +10,7 @@ class MapSum:
     def sum(self, prefix: str) -> int:
         sum = 0
         for i in self.dic.keys():
-            if(prefix[0:] == i[0:len(prefix)]):
+            if(prefix == i[0:len(prefix)]):
                 sum += self.dic[i]
         
         return sum
