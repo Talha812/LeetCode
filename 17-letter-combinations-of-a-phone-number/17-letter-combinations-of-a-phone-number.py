@@ -15,31 +15,22 @@ class Solution:
                 ans.append(i)
     
         elif(length == 2):
-            for first in range(length-1):
-                for sec in range(1,length):
-                    for f_val in dic[digits[first]]:
-                        for s_val in dic[digits[sec]]:
-                            ans.append((f_val+s_val))
+            for f_val in dic[digits[0]]:
+                for s_val in dic[digits[1]]:
+                    ans.append((f_val+s_val))
                             
         elif(length == 3):
-            for first in range(length-2):
-                for sec in range(1,length-1):
-                    for third in range(2, length):
-                        for f_val in dic[digits[first]]:
-                            for s_val in dic[digits[sec]]:
-                                for t_val in dic[digits[third]]:
-                                    ans.append((f_val+s_val+t_val))
+            for f_val in dic[digits[0]]:
+                for s_val in dic[digits[1]]:
+                    for t_val in dic[digits[2]]:
+                        ans.append((f_val+s_val+t_val))
                             
         elif(length == 4):
-            for first in range(length-3):
-                for sec in range(1,length-2):
-                    for third in range(2, length-1):
-                        for fourth in range(3, length):
-                            for f_val in dic[digits[first]]:
-                                for s_val in dic[digits[sec]]:
-                                    for t_val in dic[digits[third]]:
-                                        for four_val in dic[digits[fourth]]:
-                                            ans.append((f_val+s_val+t_val+four_val))
+            for f_val in dic[digits[0]]:
+                for s_val in dic[digits[1]]:
+                    for t_val in dic[digits[2]]:
+                        for four_val in dic[digits[3]]:
+                            ans.append((f_val+s_val+t_val+four_val))
                             
                             
         return ans
