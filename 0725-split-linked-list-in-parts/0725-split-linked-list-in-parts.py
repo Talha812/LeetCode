@@ -52,8 +52,6 @@ class Solution:
                 ans.append(dummy)
                 
                 while count <= length:
-                    # x=temp
-                    # temp=temp.next
                     dummy = curr
                     curr = curr.next
                     count += 1
