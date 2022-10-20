@@ -36,51 +36,30 @@ class Solution:
             return ans
         
         else:
-            remainder=N%k
-            quotient=N//k
-            temp=head
+            part_elements=N//k
+            extra_elements=N%k
+            curr=head
             for i in range(k):
-                j=1
-                if remainder>0:
-                    length=quotient+1
-                    remainder-=1
+                count=1
+                lenght = 0
+                if extra_elements>0:
+                    length = part_elements+1
+                    extra_elements -= 1
                 else:
-                    length=quotient
-                x=temp
-                ans.append(x)
-                while j<=length:
-                    x=temp
-                    temp=temp.next
-                    j+=1
-                x.next=None
+                    length = part_elements
+                    
+                dummy = curr
+                ans.append(dummy)
+                
+                while count <= length:
+                    # x=temp
+                    # temp=temp.next
+                    dummy = curr
+                    curr = curr.next
+                    count += 1
+                    
+                dummy.next=None
 
             return ans
-#             part_elements = N//k
-#             extra_elements = N%k
 
-#             curr = head
-            
-#             while(curr):
-#                 c = 1
-#                 record = curr
-#                 temp = record
-#                 while(c != part_elements):
-#                     node = ListNode(curr.next.val)
-#                     temp.next(node)
-#                     c += 1
-#                     curr = curr.next
-#                     temp = temp.next
-                
-#                 if(extra_elements > 0):
-#                     temp.next(ListNode(curr.next.val))
-#                     curr = curr.next
-#                     extra_elements -= 1
-#                     temp.next.next = None
-                
-#                 ans.append(record)
-
-
-            return ans
-        
-        
         
