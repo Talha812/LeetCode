@@ -38,7 +38,10 @@ class Solution:
         else:
             part_elements=N//k
             extra_elements=N%k
+            
             curr=head
+            prev = None
+            
             for i in range(k):
                 count=1
                 lenght = 0
@@ -47,17 +50,18 @@ class Solution:
                     extra_elements -= 1
                 else:
                     length = part_elements
-                    
-                dummy = curr
-                ans.append(dummy)
                 
-                while count <= length:
-                    dummy = curr
-                    curr = curr.next
-                    count += 1
+                ans.append(curr)
                     
-                dummy.next=None
-
+                while count <= length:
+                    prev = curr
+                    curr = curr.next                        
+                    count += 1
+                
+                if(prev):       
+                    prev.next = None
+                
+                
             return ans
 
         
