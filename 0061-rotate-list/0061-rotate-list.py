@@ -15,9 +15,9 @@ class Solution:
             num += 1  
             cur = cur.next
             
-        index = num - k % num    #index of new head
+        index = num - (k%num)    #index of new head
         
-        if index == num:
+        if index == 0:
             return head
         
         cur.next = head
