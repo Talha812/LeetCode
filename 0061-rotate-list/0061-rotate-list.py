@@ -7,27 +7,27 @@ class Solution:
     def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         
                 
-        if not head or not head.next:
+        if not head:
             return head
-    
-        cur = head
-        num = 1
-        while cur.next:
-            num += 1  
-            cur = cur.next
-        cur.next = head
         
-        index = num - (k % num)    #index of new head
-        # if index == 0:
-        #     return head
-        i = 0
-        cur = head
-
-        while i < index:
-            prev = cur
-            cur = cur.next
-            i += 1
-        prev.next = None
-        head = cur
+        #get length
+        length = 1
+        tail = head
+        while tail.next:
+            tail = tail.next
+            length +=1
+            
+        k = k % length
         
-        return head
+        if k == 0:
+            return head
+        
+        # move to the pivot and rotate
+        cur = head
+        for i in range(length - k - 1):
+            cur = cur.next
+            
+        newHead = cur.next
+        cur.next = None
+        tail.next = head
+        return newHead
