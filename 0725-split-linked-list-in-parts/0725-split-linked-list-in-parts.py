@@ -39,29 +39,21 @@ class Solution:
             part_elements=N//k
             extra_elements=N%k
             
-            curr=head
-            prev = None
-            
             for i in range(k):
-                count=1
-                lenght = 0
-                if extra_elements>0:
-                    length = part_elements+1
-                    extra_elements -= 1
-                else:
-                    length = part_elements
-                
+                curr = head
                 ans.append(curr)
-                    
-                while count <= length:
-                    prev = curr
-                    curr = curr.next                        
+                count = 1
+                while(count < part_elements):
+                    curr = curr.next
                     count += 1
                 
-                if(prev):       
-                    prev.next = None
+                if(extra_elements>0):
+                    curr = curr.next
+                    extra_elements -= 1
                 
-                
+                head = curr.next
+                curr.next = None
+            
             return ans
-
+        
         
