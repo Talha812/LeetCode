@@ -21,17 +21,9 @@ class Solution:
                 break
         
         if(slow == fast):
-            while(head != fast):
-                fast = fast.next
+            while(head != slow):
+                slow = slow.next
                 head = head.next
             
             return head
         
-        # sett = set()
-        # curr = head
-        # while(curr):
-        #     if curr in sett:
-        #         return curr
-        #     else:
-        #         sett.add(curr)
-        #     curr = curr.next
