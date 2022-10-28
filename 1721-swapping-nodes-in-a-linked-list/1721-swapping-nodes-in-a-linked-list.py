@@ -15,10 +15,8 @@ class Solution:
         
         i=1
         while(i<=k):
-           
             temp = sec
             sec = sec.next
-            
             i += 1
             
         while(sec):
