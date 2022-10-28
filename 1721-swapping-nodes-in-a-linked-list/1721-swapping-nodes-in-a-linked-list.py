@@ -6,6 +6,29 @@
 class Solution:
     def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         
+        if (head == None or head.next == None):
+            return head
+    
+        first = head
+        sec = head
+        temp = None
+        
+        i=1
+        while(i<=k):
+           
+            temp = sec
+            sec = sec.next
+            
+            i += 1
+            
+        while(sec):
+            first = first.next
+            sec = sec.next
+        
+        first.val, temp.val = temp.val,first.val
+        
+        return head
+        """
         if(head == None):
             return head
         
@@ -41,4 +64,9 @@ class Solution:
         
         first_node.val, sec_node.val = sec_node.val, first_node.val
         
+        # temp = first_node.val
+        # first_node.val = sec_node.val
+        # sec_node.val = temp
+        
         return head
+        """
