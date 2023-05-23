@@ -1,7 +1,7 @@
 class Solution:
     def specialArray(self, nums: List[int]) -> int:
         
-        nums.sort(reverse= True)
+        nums.sort()
         
         def getGreaterEle(nums, ele):
             
