@@ -12,11 +12,12 @@ class Solution:
             
             return count
         
-        rec = []
+        rec = [(0,0)]
         while lo <= hi:
             c = transformCount(lo)
             rec.append((c, lo))
             lo += 1
         
         rec.sort()
-        return rec[k-1][1]
+        
+        return rec[k][1]
