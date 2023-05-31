@@ -16,10 +16,7 @@ public:
         sort(s.begin(), s.end(), [&map](char c1, char c2) {
             return map[c1] < map[c2];
         });
-//         sort(s.begin(), s.end(), [](char &c1, char &c2){
-//             return map[c1] < map[c2];
-            
-//         });
+
         
         return s;
         
