@@ -8,10 +8,12 @@ class Solution:
             if i == "(":
                 count += 1
             else:
-                count -= 1
+                if count == 0:
+                    move += 1
+                else:
+                    count -= 1
             
-            if count < 0:
-                move += 1
-                count = 0
 
         return (move + count)
+    
+    
