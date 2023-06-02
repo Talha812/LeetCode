@@ -8,7 +8,7 @@ public:
             diff.push_back(nums[i+1]-nums[i]);
         } 
 
-        int start = 0, end = 0, count = 0;
+        int count = 0;
 
         for(int i=0; i<diff.size(); i++){
             for(int j=i+1; j< diff.size(); j++){
