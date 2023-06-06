@@ -10,19 +10,19 @@ class Solution:
         if not root:
             return False
         
-        def dfs(root, currSum):
+        def dfs(root, targetSum):
             if not root:
                 return False
             
-            currSum += root.val
+            targetSum -= root.val
             if not root.left and not root.right:
-                if currSum == targetSum:
+                if targetSum == 0:
                     return True
             
-            left = dfs(root.left, currSum)
-            right = dfs(root.right, currSum)
+            left = dfs(root.left, targetSum)
+            right = dfs(root.right, targetSum)
             
             return left or right
         
-        return dfs(root, 0)
+        return dfs(root, targetSum)
         
