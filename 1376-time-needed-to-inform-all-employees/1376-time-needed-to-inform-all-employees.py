@@ -27,8 +27,6 @@ class Solution:
                 for e, t in head_emp[mana_ger]:
                     queue.append((e, t+time))
                     max_time = max(max_time, t+time)
-                    # else:
-                    #     max_time = max(max_time, time)
             
             else:
                 max_time = max(max_time, time)
