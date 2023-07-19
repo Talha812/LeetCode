@@ -3,8 +3,8 @@ class TopVotedCandidate(object):
     def __init__(self, persons: List[int], times: List[int]):
         
         count = {}
-        mostVotePersons = [0] * len(persons) # mostVotePersons[i] is the most vote person at times[i]
-        largestVoteInd = -1 # keep largest vote person index
+        mostVotePersons = [0] * len(persons)
+        largestVoteInd = -1
         for i in range(len(persons)):
             if persons[i] not in count:
                 count[persons[i]] = 1
@@ -18,7 +18,7 @@ class TopVotedCandidate(object):
         
         self.times = times
         self.mostVotePersons = mostVotePersons
-        print(count, mostVotePersons, largestVoteInd)
+        
 
     def q(self, t: int) -> int:
         idx = self.findExactRight(self.times, t) - 1 # binary search on times to find the most recent time before t
@@ -28,15 +28,15 @@ class TopVotedCandidate(object):
         """
         Returns rightmost insertion point that target should be inserted in the sorted array
         """
-        left, right = 0, len(nums)
+        left, right = 0, len(nums)-1
         
-        while left < right:
+        while left <= right:
             mid = left + (right - left) // 2
             
             if nums[mid] <= target:
                 left = mid + 1
             else:
-                right = mid
+                right = mid - 1
             
         return left
 
