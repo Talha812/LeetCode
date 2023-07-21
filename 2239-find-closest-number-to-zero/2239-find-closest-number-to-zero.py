@@ -1,9 +1,7 @@
 class Solution:
     def findClosestNumber(self, nums: List[int]) -> int:
         
-        prevError = float('inf')
-        max_num = float('-inf')
-        
+        prevError= float("inf")
         ans = 0
         for i in nums:
             error = abs(i)
