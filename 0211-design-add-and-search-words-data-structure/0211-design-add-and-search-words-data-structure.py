@@ -1,11 +1,10 @@
 class WordDictionary:
 
     def __init__(self):
-        self.store = []
+        self.store = set()
 
     def addWord(self, word: str) -> None:
-        if word not in self.store:
-            self.store.append(word)
+        self.store.add(word)
 
     def search(self, word: str) -> bool:
         if word in self.store:
