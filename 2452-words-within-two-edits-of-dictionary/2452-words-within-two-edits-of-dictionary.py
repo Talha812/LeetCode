@@ -15,7 +15,6 @@ class Solution:
                 ans.append(query)
             
             else:
-                toCorrect = 0
                 for j in range(len(dictionary)):
                     c = checkIfCanEqual(dictionary[j], query)
                     if c <= 2:
