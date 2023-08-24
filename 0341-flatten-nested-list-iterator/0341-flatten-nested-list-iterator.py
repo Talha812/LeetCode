@@ -22,11 +22,11 @@
 
 class NestedIterator:
     def __init__(self, nestedList: [NestedInteger]):
-        self.flattenList = []
+        self.flattenList = collections.deque([])
         self.flatten(nestedList)
         
     def next(self) -> int:
-        return self.flattenList.pop(0)
+        return self.flattenList.popleft()
     
     def hasNext(self) -> bool:
         if not self.flattenList:
