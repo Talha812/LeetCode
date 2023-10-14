@@ -1,33 +1,24 @@
 class Solution:
     def canMeasureWater(self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int) -> bool:
         
-        if targetCapacity > (jug1Capacity + jug2Capacity):
-            return False
-        
-        elif jug1Capacity == targetCapacity or jug2Capacity == targetCapacity:
-            return True
-        
-        def findGCD(a, b):
+        visited = set()
+        def calculate(jug1, jug2, total, filled, visited):
+            if filled > total or filled < 0 or filled in visited:
+                return False
             
-            if a == b:
-                return a
+            visited.add(filled)
             
-            largestMultiple = 1
+            if filled == targetCapacity:
+                return True
             
-            if a < b:
-                for i in range(2, a+1):
-                    if a%i == 0 and b%i == 0:
-                        largestMultiple = i
-            else:
-                for i in range(2, b+1):
-                    if a%i == 0 and b%i == 0:
-                        largestMultiple = i
+            ans1 = calculate(jug1, jug2, total, filled + jug1, visited)
+            ans2 = calculate(jug1, jug2, total, filled - jug1, visited)
+            ans3 = calculate(jug1, jug2, total, filled + jug2, visited)
+            ans4 = calculate(jug1, jug2, total, filled - jug2, visited)
             
-            return largestMultiple
+            return ans1 or ans2 or ans3 or ans4
         
-        gcd = findGCD(jug1Capacity, jug2Capacity)
-        
-        if targetCapacity%gcd == 0:
-            return True
-        
-        return False
+        total = jug1Capacity + jug2Capacity
+        return calculate(jug1Capacity, jug2Capacity, total, 0, visited)
+            
+            
