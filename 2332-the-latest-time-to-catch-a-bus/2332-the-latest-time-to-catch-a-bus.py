@@ -20,8 +20,8 @@ class Solution:
         else:
             max_seat = buses[-1]
     
-        booked = set(passengers)
+        bookedSeats = set(passengers)
         for seat in range(max_seat, 0, -1):
-            if seat not in booked:
+            if seat not in bookedSeats:
                 return seat
             
