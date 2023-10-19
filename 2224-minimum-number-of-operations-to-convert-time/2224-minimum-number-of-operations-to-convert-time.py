@@ -2,7 +2,7 @@ class Solution:
     def convertTime(self, current: str, correct: str) -> int:
         
         def getMinutes(time):
-            return (60*int(time[0:2])) + int(time[3:])
+            return (60*int(time[0:2])) + int(time[3:5])
         
         curr_min = getMinutes(current)
         corr_min = getMinutes(correct)
@@ -10,18 +10,22 @@ class Solution:
         required = corr_min - curr_min
         
         operations = 0
-        if required >= 60:
-            operations += required//60
-            required = required%60
-        
-        if required >= 15:
-            operations += required//15
-            required = required%15
-        
-        if required >= 5:
-            operations += required//5
-            required = required%5
+        while required > 0:
             
-        operations += required
+            if required >= 60:
+                operations += 1
+                required -= 60
+        
+            elif required >= 15:
+                operations += 1
+                required -= 15
+        
+            elif required >= 5:
+                operations += 1
+                required -= 5
+            
+            elif required >= 1:
+                operations += 1
+                required -= 1
         
         return operations
