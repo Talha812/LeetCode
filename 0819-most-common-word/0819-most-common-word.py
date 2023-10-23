@@ -1,10 +1,7 @@
 class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
         
-        symbols = "!?',;. "
-        
-        # para_split = paragraph.replace("").split(" ")
-        
+        symbols = "!?',;. "        
         dic = {}
         i = 0
         while i < len(paragraph):
@@ -20,17 +17,6 @@ class Solution:
                     dic[buffer.lower()] = 1
             
             i += 1
-        # for word in para_split:
-        #     if word[-1] in symbols:
-        #         if word[0: len(word)-1] in dic:
-        #             dic[word[0: len(word)-1].lower()] += 1
-        #         else:
-        #             dic[word[0: len(word)-1].lower()] = 1
-        #     else:
-        #         if word.lower() in dic:
-        #             dic[word.lower()] += 1
-        #         else:
-        #             dic[word.lower()] = 1
                     
         most_freq = -1
         ans = ""
