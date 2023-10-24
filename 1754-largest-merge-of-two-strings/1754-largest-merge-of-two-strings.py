@@ -22,9 +22,9 @@ class Solution:
                     ans += word2[j]
                     j += 1
         
-        if i < len(word1):
-            ans += word1[i:]  
-        elif j < len(word2):
-            ans += word2[j:]
+        # if i < len(word1):
+        #     ans += word1[i:]  
+        # elif j < len(word2):
+        #     ans += word2[j:]
         
-        return ans
+        return ans + word1[i:] + word2[j:]
