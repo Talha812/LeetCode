@@ -10,21 +10,23 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+
         if not root:
             return root
         
-        queue = collections.deque([root])
-        
-        while queue:
-            size = len(queue)
-            for i in range(size):
-                node = queue.popleft()
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
+        def recursion(root):
+            if not root:
+                return
+            
+            if root.left:
+                root.left.next = root.right
+            
+            if root.right and root.next:
+                root.right.next = root.next.left
                 
-            for i in range(len(queue)-1):
-                queue[i].next = queue[i+1]
+            recursion(root.left)
+            recursion(root.right)
+        
+        recursion(root)
         
         return root
