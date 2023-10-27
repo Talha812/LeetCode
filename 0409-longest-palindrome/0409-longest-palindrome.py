@@ -1,24 +1,16 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
         
-        dic = {}
-        for ch in s:
-            if ch in dic:
-                dic[ch] += 1
-            else:
-                dic[ch] = 1
-        
+        sett = set()
         ans = 0
-        size = len(dic)
-        for key, val in dic.items():
-            if val%2 == 0:
-                ans += val
-                size -= 1
+        for ch in s:
+            if ch not in sett:
+                sett.add(ch)
             else:
-                ans += val-(val%2)
-                dic[key] = val%2
-                
-        if size > 0:
+                ans += 2
+                sett.remove(ch)
+        
+        if len(sett) > 0:
             return ans + 1
         
         return ans
