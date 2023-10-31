@@ -1,18 +1,18 @@
 class Solution:
     def circularGameLosers(self, n: int, k: int) -> List[int]:
             
-        friend = 0
         visited = set()
         i = 1
-        while friend not in visited:
+        friend = 1
+        while True:
+            if friend in visited or len(visited) == n:
+                break
             visited.add(friend)
-            friend += i*k
-            friend = friend%n
+            friend += (i * k)
+            friend = (friend - 1) % n + 1
             i += 1
-            
-        losers = []
-        for f in range(n):
+        ans = []
+        for f in range(1, n+1):
             if f not in visited:
-                losers.append(f+1)
-                
-        return losers
+                ans.append(f)
+        return ans
