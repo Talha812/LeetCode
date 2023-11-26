@@ -11,9 +11,7 @@ class Solution:
             if mini == maxi:
                 ans.append(True)
                 continue
-            
-            
-            
+
             if (maxi-mini)%(len(subarr)-1) != 0:
                 ans.append(False)
             else:
