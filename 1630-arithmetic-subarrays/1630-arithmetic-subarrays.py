@@ -1,19 +1,36 @@
 class Solution:
     def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
-        def check(arr):
-            arr.sort()
-            diff = arr[1] - arr[0]
-            
-            for i in range(2, len(arr)):
-                if arr[i] - arr[i - 1] != diff:
-                    return False
-                
-            return True
-        
+    
         ans = []
         for i in range(len(l)):
-            arr = nums[l[i] : r[i] + 1]
-            ans.append(check(arr))
+            subarr = nums[l[i] : r[i]+1]
+            
+            mini = min(subarr)
+            maxi = max(subarr)
+            
+            if mini == maxi:
+                ans.append(True)
+                continue
+            
+            
+            
+            if (maxi-mini)%(len(subarr)-1) != 0:
+                ans.append(False)
+            else:
+                d = (maxi-mini)//(len(subarr)-1)
+                flag = False
+                arr_set = set(subarr)
+                curr = mini + d
+                while curr < maxi:
+                    if curr not in arr_set:
+                        ans.append(False)
+                        flag = True
+                        break
+                        
+                    curr += d
+                    
+                if not flag:
+                    ans.append(True)
         
         return ans
         
