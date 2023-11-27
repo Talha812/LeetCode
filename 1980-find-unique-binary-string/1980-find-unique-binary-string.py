@@ -1,18 +1,5 @@
 class Solution:
     def findDifferentBinaryString(self, nums: List[str]) -> str:
-        
-#         if len(nums) == 1:
-#             if nums[0] == "1":
-#                 return "0"
-#             else:
-#                 return "1"
-        
-#         ans = 0
-#         for n in nums:
-#             ans = ans^int(n, base=2)
-        
-#         return bin(ans)[2:]
-    
     
         seen=set(nums)
         n=len(nums)
