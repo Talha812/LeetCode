@@ -1,11 +1,17 @@
 class Solution:
     def squareIsWhite(self, coordinates: str) -> bool:
+        dic = {"a" : 0, "b" : 1, "c" : 2, "d" : 3, "e" : 4, "f" : 5, "g" : 6, "h" : 7}
         
-        if int(coordinates[-1])%2!=0:
-            if (ord(coordinates[0])-ord('a'))%2==0:
-                return False
-            else: return True
+        col = int(coordinates[1])
+        row = dic[coordinates[0]]
+        
+        if row%2 == 0:
+            if col%2 == 0:
+                return True
+            
+            return False
+        
         else:
-            if (ord(coordinates[0])-ord('a'))%2!=0:
+            if col%2 == 0:
                 return False
-            else: return True
+            return True
