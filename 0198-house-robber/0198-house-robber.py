@@ -1,5 +1,5 @@
 class Solution:
-    def rob(self, nums: List[int]) -> int:
+    def rob(self, nums: List[int]) -> int:           
         
         curr = 0
         prev = 0
@@ -10,4 +10,4 @@ class Solution:
             prev = curr
             curr = next
         
-        return curr
+        return next
