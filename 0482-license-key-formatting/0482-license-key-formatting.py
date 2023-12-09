@@ -23,5 +23,3 @@ class Solution:
         ans.reverse()
         
         return "-".join(ans)
-            
-        
