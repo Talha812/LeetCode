@@ -1,21 +1,15 @@
 class Solution:
     def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
         
-        n = len(s)
-        d = defaultdict(int)
-        count = [None]*n
-        for i in range(n):
-            d[s[i]] += 1
-            count[i] = d.copy()
-        def check(start,end,k):
-            prev = defaultdict(int) if start == 0 else count[start-1]
-            left = 0
-            for i in range(26):
-                diff = (count[end][chr(i+97)] - prev[chr(i+97)]) % 2
-                if diff == 1: left += 1
-            left = left // 2
-            return left <= k
-        ans = []
-        for start,end,k in queries:
-            ans.append(check(start,end,k))
-        return ans
+        counter = 0
+        running_totals = []
+        for c in s:
+            counter ^= 1 << (ord(c) - ord('a'))
+            running_totals.append(counter)
+        result = []
+        for left, right, k in queries:
+            frequencies = running_totals[right]
+            if left > 0:
+                frequencies ^= running_totals[left-1]
+            result.append(k >= frequencies.bit_count() // 2)
+        return result
