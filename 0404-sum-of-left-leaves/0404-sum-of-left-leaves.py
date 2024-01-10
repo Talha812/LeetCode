@@ -7,19 +7,37 @@
 class Solution:
     def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
         
-        queue = collections.deque([[root, False]])
+#         queue = collections.deque([[root, False]])
+#         ans = 0
+#         while queue:
+#             node, isleft = queue.popleft()
+            
+#             if isleft:
+#                 if not node.left and not node.right:
+#                     ans += node.val
+            
+#             if node.left:
+#                 queue.append([node.left, True])
+                
+#             if node.right:
+#                 queue.append([node.right, False])
+        
+#         return ans
+    
+    
+        stack = [[root, False]]
         ans = 0
-        while queue:
-            node, isleft = queue.popleft()
+        while stack:
+            node, isleft = stack.pop()
             
             if isleft:
                 if not node.left and not node.right:
                     ans += node.val
             
-            if node.left:
-                queue.append([node.left, True])
-                
             if node.right:
-                queue.append([node.right, False])
-        
+                stack.append([node.right, False])
+            
+            if node.left:
+                stack.append([node.left, True])
+                
         return ans
