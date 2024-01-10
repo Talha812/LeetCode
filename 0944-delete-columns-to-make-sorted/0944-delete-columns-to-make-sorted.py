@@ -1,20 +1,22 @@
 class Solution:
     def minDeletionSize(self, strs: List[str]) -> int:
         
-        output = [[] for i in range(0, len(strs[0]))]
-
-        for i in range(0, len(strs)):
-            for j in range(0, len(strs[i])):
-                output[j].append(strs[i][j])
-
-        count = 0
-        for i in output:
-            isOrder = True
-            prev = i[0]
-            for j in range(1, len(i)):
-                if prev > i[j]:
-                    isOrder = False
-                prev = i[j]
-            if not isOrder:
-                count += 1 
-        return count
+        colums = [""] * len(strs[0])
+        
+        for i in range(len(strs)):
+            for j in range(len(strs[0])):
+                colums[j] += strs[i][j]
+                
+        toDelete = 0
+        for col in colums:
+            flag = True
+            
+            for i in range(len(col)-1):
+                if ord(col[i]) > ord(col[i+1]):
+                    flag = False
+                    break
+            
+            if not flag:
+                toDelete += 1
+                
+        return toDelete
