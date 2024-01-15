@@ -1,18 +1,19 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         
+        global ans
         ans = []
-        
-        def calculate(candidates, path, target):
+        def calculateSum(candidates, path, target):
+            global ans
             if target < 0:
                 return
             
             if target == 0:
-                ans.append(path)
+                ans.append(path[:])
+                return
             
             for i in range(len(candidates)):
-                calculate(candidates[i:], path + [candidates[i]], target - candidates[i])
-            
+                calculateSum(candidates[i:], path + [candidates[i]], target - candidates[i])
         
-        calculate(candidates, [], target)
+        calculateSum(candidates, [], target)
         return ans
