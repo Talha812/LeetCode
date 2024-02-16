@@ -10,24 +10,27 @@ class Solution:
             else:
                 dic[n] = 1
                 
-        numbers = []
+        minHeap = []
+        
         for key, value in dic.items():
-            numbers.append((value,key))
-        
-        numbers.sort(reverse=True)
-        
+            heappush(minHeap, (value,key))
+            
         uniq = 0
         while k > 0:
-            top_ele = numbers.pop()
-            if top_ele[0] == 1:
+            count, num = heappop(minHeap)
+            if count == 1:
                 k -= 1
             else:
-                if k < top_ele[0]:
-                    k -= top_ele[0]
+                while count > 0 and k > 0:
+                    count -= 1
+                    k -= 1
+
+                if count > 0:
                     uniq += 1
-                else:
-                    k -= top_ele[0]
-        
-        return len(numbers) + uniq
+
+                if k == 0:
+                    break
+                    
+        return len(minHeap) + uniq
                     
         
