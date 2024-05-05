@@ -1,33 +1,30 @@
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
-    
-        def checkPossibilities(word1, word2, i, j, memo):
+        
+        def calculate(w1, w2, i, j, memo):
+            if i == len(w1):
+                return len(w2) - j
             
-            if j == len(word2):
-                return len(word1) - i
+            elif j == len(w2):
+                return len(w1) - i
             
-            elif i == len(word1):
-                return len(word2) - j
-                
             if (i,j) in memo:
                 return memo[(i,j)]
             
-            elif word1[i] == word2[j]:
-                return checkPossibilities(word1, word2, i+1, j+1, memo)
+            elif w1[i] == w2[j]:
+                return calculate(w1, w2, i+1, j+1, memo)
             
             else:
-                output = min(
-                    checkPossibilities(word1, word2, i+1, j, memo),  # Delete
-                    checkPossibilities(word1, word2, i, j+1, memo),  # insert
-                    checkPossibilities(word1, word2, i+1, j+1, memo)  # Replace
-                )
+                delete = calculate(w1, w2, i+1, j, memo)
+                replace = calculate(w1, w2, i+1, j+1, memo)
+                insert = calculate(w1, w2, i, j+1, memo)
                 
-                memo[(i,j)] = 1 + output
-                return memo[(i,j)] 
+                output = 1 + min(delete, replace, insert)
+            
+                memo[(i,j)] = output
+                return memo[(i,j)]
         
         memo = {}
-        return checkPossibilities(word1, word2, 0, 0, memo)
+        ans = calculate(word1, word2, 0, 0, memo)
         
-        
-        
-        
+        return ans
