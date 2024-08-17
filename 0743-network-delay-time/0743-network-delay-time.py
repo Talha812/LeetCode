@@ -1,26 +1,28 @@
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        
         adj_list = {i : [] for i in range(n)}
         
-        for source, dest, weight in times:
-            adj_list[source-1].append((dest-1, weight))
-        
-        
-        queue = collections.deque([(k-1, 0)])
-        
+        for src, dest, time in times:
+            adj_list[src-1].append((dest-1, time))
+            
         visited = set()
-        distance = [float("inf")]*n
+        
+        all_time = [float("inf")]*n  
+        
+        queue = collections.deque([(k-1, 0)]) 
         
         while queue:
-            node, dist = queue.popleft()
-            distance[node] = min(distance[node], dist)
+            curr_node, time = queue.popleft()
             
-            for neigh, distnc in adj_list[node]:
-                if distnc + distance[node] < distance[neigh]:
-                    queue.append((neigh, distnc + distance[node]))
-        
-        if max(distance) == float("inf"):
+            all_time[curr_node] = min(time, all_time[curr_node])
+            
+            visited.add(curr_node)
+            
+            for neigh, neigh_time in adj_list[curr_node]:
+                if neigh_time + all_time[curr_node] < all_time[neigh]:
+                    queue.append((neigh, neigh_time + all_time[curr_node]))
+            
+        if len(visited) != n:
             return -1
         
-        return max(distance)
+        return max(all_time)
