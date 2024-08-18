@@ -1,30 +1,22 @@
 class Trie:
 
-    def __init__(self):    
-        self.words = []
+    def __init__(self):
+        self.trie = set()
 
     def insert(self, word: str) -> None:
-        self.words.append(word)
-        
+        self.trie.add(word)
+
     def search(self, word: str) -> bool:
-        if len(self.words) == 0:
-            return False
+        if word in self.trie:
+            return True
+        return False
+
+    def startsWith(self, prefix: str) -> bool:
         
-        for w in self.words:
-            if w == word:
+        for word in self.trie:
+            if word[0: len(prefix)] == prefix:
                 return True
         
-        return False
-        
-    def startsWith(self, prefix: str) -> bool:
-        if len(self.words) == 0:
-            return False
-         
-        for w in self.words:
-            if len(w) >= len(prefix):
-                if w[0:len(prefix)] == prefix:
-                    return True
-            
         return False
 
 
